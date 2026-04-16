@@ -1,3 +1,5 @@
+import { WorkshopInquiryForm } from "../components/WorkshopInquiryForm";
+
 const partnerTypes = [
   {
     title: "Summer camps",
@@ -81,6 +83,12 @@ const flyerHighlights = [
   "Quick snapshot of the student experience, grade range, and STEM value",
 ];
 
+const quoteHighlights = [
+  "Share your dates, location, and group size for a tailored quote",
+  "Get guidance on the best workshop format for your students",
+  "Start with a quick inquiry instead of a long scheduling back-and-forth",
+];
+
 export default function Home() {
   return (
     <main className="site-shell">
@@ -125,7 +133,7 @@ export default function Home() {
             <div className="hero-actions">
               <a
                 className="button button-primary"
-                href="mailto:contact@reimaginedideas.com?subject=Reimagined%20Ideas%20Workshop%20Inquiry"
+                href="#contact"
               >
                 Book a Workshop
               </a>
@@ -271,28 +279,42 @@ export default function Home() {
       </section>
 
       <section className="section cta-section" id="contact">
-        <div className="cta-panel">
-          <div>
-            <p className="section-kicker">Let&apos;s create the right fit</p>
-            <h2>Bring a hands-on tech workshop to your students this summer.</h2>
-            <p>
-              Reimagined Ideas is built for organizations that want STEM programming
-              students will actually remember. Reach out to talk through dates, age
-              groups, and the format that makes sense for your program.
-            </p>
+        <div className="contact-grid">
+          <div className="cta-panel">
+            <div>
+              <p className="section-kicker">Let&apos;s create the right fit</p>
+              <h2>Bring a hands-on tech workshop to your students this summer.</h2>
+              <p>
+                Reimagined Ideas is built for organizations that want STEM programming
+                students will actually remember. Use the form to request a quote and
+                share the details that matter most for your program.
+              </p>
+            </div>
+
+            <ul className="contact-points">
+              {quoteHighlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+
+            <div className="contact-card">
+              <p className="card-label">Prefer direct contact?</p>
+              <p>
+                Email{" "}
+                <a href="mailto:contact@reimaginedideas.com">
+                  contact@reimaginedideas.com
+                </a>{" "}
+                or visit{" "}
+                <a href="https://www.reimaginedideas.com">reimaginedideas.com</a>.
+              </p>
+              <p>
+                After you submit the form, the goal is to follow up with next steps,
+                availability, and pricing guidance.
+              </p>
+            </div>
           </div>
 
-          <div className="cta-actions">
-            <a
-              className="button button-primary"
-              href="mailto:contact@reimaginedideas.com?subject=Summer%20Workshop%20Inquiry"
-            >
-              contact@reimaginedideas.com
-            </a>
-            <a className="button button-secondary" href="https://www.reimaginedideas.com">
-              reimaginedideas.com
-            </a>
-          </div>
+          <WorkshopInquiryForm />
         </div>
       </section>
 
