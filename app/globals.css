@@ -215,6 +215,15 @@ img {
   margin: 20px 0 0;
 }
 
+.hero-proof {
+  max-width: 46ch;
+  margin: 18px 0 0;
+  color: var(--ink);
+  font-size: 1.06rem;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
 .hero-badges {
   display: flex;
   flex-wrap: wrap;
@@ -377,6 +386,26 @@ img {
   gap: 12px;
 }
 
+.resource-included {
+  padding-top: 4px;
+}
+
+.resource-subheading,
+.pricing-note {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+.resource-subheading {
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  color: var(--blue);
+}
+
 .partner-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -408,6 +437,10 @@ img {
 
 .section-intro p {
   margin: 0;
+}
+
+.pricing-note {
+  margin-top: 18px;
 }
 
 .steps-grid {

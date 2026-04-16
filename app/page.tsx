@@ -78,15 +78,21 @@ const reasonsToBook = [
 ];
 
 const flyerHighlights = [
-  "One-page overview for camp directors, schools, and enrichment partners",
-  "Easy to attach in outreach emails or share during planning conversations",
-  "Quick snapshot of the student experience, grade range, and STEM value",
+  "Quick snapshot of the workshop, grade range, and learning value",
+  "Easy to share with camp leadership, school teams, or program directors",
+  "Helpful for internal review before booking dates and finalizing a quote",
 ];
 
 const quoteHighlights = [
   "Share your dates, location, and group size for a tailored quote",
   "Get guidance on the best workshop format for your students",
   "Start with a quick inquiry instead of a long scheduling back-and-forth",
+];
+
+const includedItems = [
+  "All materials provided",
+  "Setup + breakdown handled",
+  "Instructor-led session",
 ];
 
 export default function Home() {
@@ -122,6 +128,10 @@ export default function Home() {
               experience designed for camps, schools, and enrichment partners looking
               for something creative, memorable, and easy to say yes to.
             </p>
+            <p className="hero-proof">
+              I help camps and schools deliver a premium STEM experience without
+              needing tech staff.
+            </p>
 
             <div className="hero-badges" aria-label="Workshop highlights">
               <span>Grades 3-8</span>
@@ -131,35 +141,27 @@ export default function Home() {
             </div>
 
             <div className="hero-actions">
-              <a
-                className="button button-primary"
-                href="#contact"
-              >
-                Book a Workshop
+              <a className="button button-primary" href="#contact">
+                Check Availability
               </a>
-              <a
-                className="button button-secondary"
-                href="/techflyer.png"
-                download="Reimagined-Ideas-Flyer.png"
-              >
-                Download Flyer
+              <a className="button button-secondary" href="#quote-form">
+                Get a Custom Quote in 48 Hours
               </a>
             </div>
           </div>
 
           <div className="resource-card">
-            <p className="card-label">Ready-to-share flyer</p>
-            <h2>Give potential partners a polished handout they can download and pass along.</h2>
+            <p className="card-label">Downloadable flyer</p>
+            <h2>Download a one-page overview you can share with your team or program director.</h2>
             <p className="card-text">
-              The flyer is now a downloadable resource instead of a full landing-page
-              image, so the homepage stays focused while still giving visitors something
-              useful to take with them.
+              A clear handout helps decision-makers quickly understand the workshop and
+              what it would look like in your camp or school setting.
             </p>
 
             <div className="resource-file">
               <span className="resource-file-type">PNG download</span>
               <strong>Reimagined Ideas flyer</strong>
-              <span>Perfect for outreach emails, camp packets, and program planning.</span>
+              <span>Useful for planning meetings, approvals, and internal conversations.</span>
             </div>
 
             <ul className="resource-list">
@@ -167,6 +169,15 @@ export default function Home() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+
+            <div className="resource-included">
+              <p className="resource-subheading">What&apos;s Included</p>
+              <ul className="resource-list">
+                {includedItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
 
             <div className="resource-actions">
               <a
@@ -177,7 +188,7 @@ export default function Home() {
                 Download the Flyer
               </a>
               <a className="button button-secondary" href="#contact">
-                Ask About Dates
+                Check Availability
               </a>
             </div>
           </div>
@@ -220,8 +231,8 @@ export default function Home() {
           <p className="section-kicker">Student outcomes</p>
           <h2>Creative, approachable, and rooted in real STEM learning.</h2>
           <p>
-            The flyer leads with student excitement. The website also shows partners
-            what students actually gain from the experience.
+            Pilot-ready and designed for real classrooms. Built by a developer with
+            experience in interactive systems and hands-on learning design.
           </p>
         </div>
 
@@ -253,6 +264,10 @@ export default function Home() {
           <p>
             Whether you need a one-day highlight or a recurring experience, the program
             can fit the rhythm of your organization.
+          </p>
+          <p className="pricing-note">
+            Workshops typically range from $500-$2,000+ per session depending on group
+            size and format.
           </p>
         </div>
 
@@ -314,7 +329,9 @@ export default function Home() {
             </div>
           </div>
 
-          <WorkshopInquiryForm />
+          <div id="quote-form">
+            <WorkshopInquiryForm />
+          </div>
         </div>
       </section>
 
