@@ -480,8 +480,30 @@ img {
   margin-top: 28px;
 }
 
+.outcomes-note {
+  max-width: 900px;
+  margin: 20px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1.04rem;
+}
+
+.outcomes-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
 .list-card {
   padding: 26px;
+}
+
+.list-card-title {
+  margin: 0;
+  font-family: "Franklin Gothic Medium", "Trebuchet MS", sans-serif;
+  font-size: 1.7rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .list-card ul,

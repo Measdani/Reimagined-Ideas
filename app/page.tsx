@@ -39,18 +39,27 @@ const workshopSteps = [
   },
 ];
 
-const studentActivities = [
-  "Draw their own original idea",
-  "Turn art into touch buttons and playable controls",
-  "Build a project they can test, share, and improve",
-  "Explore invention through creativity instead of coding pressure",
-];
-
-const studentLearning = [
-  "How technology responds to touch and input",
-  "Creative problem solving through iteration",
-  "Confidence using beginner-friendly digital tools",
-  "Core ideas behind circuits, cause and effect, and interactive design",
+const workshopExperiences = [
+  {
+    label: "Option 1",
+    title: "Hands-On Tech Creation",
+    items: [
+      "Design and build a personal interactive project",
+      "Learn how touch, input, and simple circuits work together",
+      "Create something functional they can take home",
+      "Explore creativity through guided, beginner-friendly tools",
+    ],
+  },
+  {
+    label: "Option 2",
+    title: "Bring Ideas to Life with Technology",
+    items: [
+      "Turn drawings into interactive controls and playable inputs",
+      "Discover how everyday materials can power digital interaction",
+      "Experiment with cause and effect through real-time feedback",
+      "Collaborate and test ideas in a fun, low-pressure environment",
+    ],
+  },
 ];
 
 const programOptions = [
@@ -235,25 +244,29 @@ export default function Home() {
             experience in interactive systems and hands-on learning design.
           </p>
         </div>
+        <p className="outcomes-note">
+          Depending on the selected workshop, students can either build a take-home
+          project or explore how technology responds to their ideas in real time.
+        </p>
 
         <div className="outcomes-grid">
-          <article className="list-card">
-            <p className="card-label">What students do</p>
-            <ul>
-              {studentActivities.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
+          {workshopExperiences.map((experience) => (
+            <article className="list-card" key={experience.title}>
+              <p className="card-label">{experience.label}</p>
+              <h3 className="list-card-title">{experience.title}</h3>
+              <ul>
+                {experience.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
 
-          <article className="list-card">
-            <p className="card-label">What students learn</p>
-            <ul>
-              {studentLearning.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
+        <div className="outcomes-cta">
+          <a className="button button-primary" href="#quote-form">
+            Get a Custom Quote in 48 Hours
+          </a>
         </div>
       </section>
 
