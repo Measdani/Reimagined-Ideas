@@ -95,7 +95,8 @@ const flyerHighlights = [
 const quoteHighlights = [
   "Share your dates, location, and group size for a tailored quote",
   "Get guidance on the best workshop format for your students",
-  "Start with a quick inquiry instead of a long scheduling back-and-forth",
+  "All tools and materials are provided (excluding computers)",
+  "Students will need access to computers for interactive portions",
 ];
 
 const includedItems = [
@@ -311,7 +312,7 @@ export default function Home() {
           <div className="cta-panel">
             <div>
               <p className="section-kicker">Let&apos;s create the right fit</p>
-              <h2>Bring a hands-on tech workshop to your students this summer.</h2>
+              <h2>Bring a hands-on tech workshop to your students.</h2>
               <p>
                 Reimagined Ideas is built for organizations that want STEM programming
                 students will actually remember. Use the form to request a quote and
