@@ -274,7 +274,7 @@ img {
   color: var(--blue);
 }
 
-.flyer-card,
+.resource-card,
 .partner-card,
 .step-card,
 .list-card,
@@ -288,12 +288,11 @@ img {
   backdrop-filter: blur(8px);
 }
 
-.flyer-card {
-  padding: 20px;
-}
-
-.flyer-card-top {
-  padding: 4px 4px 18px;
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px;
 }
 
 .card-label {
@@ -304,11 +303,72 @@ img {
   margin: 0;
 }
 
-.flyer-frame {
-  overflow: hidden;
+.resource-card h2 {
+  margin: 0;
+  font-family: "Franklin Gothic Medium", "Trebuchet MS", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.resource-file {
+  display: grid;
+  gap: 6px;
+  padding: 18px 20px;
   border-radius: 22px;
-  background: var(--paper);
+  background:
+    linear-gradient(135deg, rgba(255, 217, 120, 0.24), rgba(238, 245, 251, 0.88)),
+    var(--paper);
   border: 1px solid rgba(36, 50, 74, 0.08);
+}
+
+.resource-file strong {
+  font-size: 1.18rem;
+}
+
+.resource-file span {
+  color: var(--muted);
+}
+
+.resource-file-type {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--blue) !important;
+}
+
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resource-list li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.resource-list li + li {
+  margin-top: 12px;
+}
+
+.resource-list li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--orange-deep);
+  font-weight: 900;
+}
+
+.resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .partner-strip {
@@ -472,7 +532,7 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .flyer-card {
+  .resource-card {
     max-width: 620px;
   }
 
@@ -506,7 +566,7 @@ img {
     font-size: clamp(2.6rem, 12vw, 4rem);
   }
 
-  .flyer-card,
+  .resource-card,
   .partner-card,
   .step-card,
   .list-card,

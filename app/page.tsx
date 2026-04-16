@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const partnerTypes = [
   {
     title: "Summer camps",
@@ -77,6 +75,12 @@ const reasonsToBook = [
   "Hands-on and visual, which makes the learning memorable for families and program leaders",
 ];
 
+const flyerHighlights = [
+  "One-page overview for camp directors, schools, and enrichment partners",
+  "Easy to attach in outreach emails or share during planning conversations",
+  "Quick snapshot of the student experience, grade range, and STEM value",
+];
+
 export default function Home() {
   return (
     <main className="site-shell">
@@ -128,30 +132,45 @@ export default function Home() {
               <a
                 className="button button-secondary"
                 href="/techflyer.png"
-                target="_blank"
-                rel="noreferrer"
+                download="Reimagined-Ideas-Flyer.png"
               >
-                View Flyer
+                Download Flyer
               </a>
             </div>
           </div>
 
-          <div className="flyer-card">
-            <div className="flyer-card-top">
-              <p className="card-label">Workshop snapshot</p>
-              <p className="card-text">
-                A visual overview you can share with schools, camp leaders, and program
-                coordinators.
-              </p>
+          <div className="resource-card">
+            <p className="card-label">Ready-to-share flyer</p>
+            <h2>Give potential partners a polished handout they can download and pass along.</h2>
+            <p className="card-text">
+              The flyer is now a downloadable resource instead of a full landing-page
+              image, so the homepage stays focused while still giving visitors something
+              useful to take with them.
+            </p>
+
+            <div className="resource-file">
+              <span className="resource-file-type">PNG download</span>
+              <strong>Reimagined Ideas flyer</strong>
+              <span>Perfect for outreach emails, camp packets, and program planning.</span>
             </div>
-            <div className="flyer-frame">
-              <Image
-                src="/techflyer.png"
-                alt="Reimagined Ideas workshop flyer"
-                width={1024}
-                height={1536}
-                priority
-              />
+
+            <ul className="resource-list">
+              {flyerHighlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+
+            <div className="resource-actions">
+              <a
+                className="button button-primary"
+                href="/techflyer.png"
+                download="Reimagined-Ideas-Flyer.png"
+              >
+                Download the Flyer
+              </a>
+              <a className="button button-secondary" href="#contact">
+                Ask About Dates
+              </a>
             </div>
           </div>
         </div>
