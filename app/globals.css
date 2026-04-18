@@ -741,6 +741,259 @@ img {
   margin: 0;
 }
 
+.admin-shell {
+  min-height: 100vh;
+  padding: 32px 24px 72px;
+}
+
+.admin-panel {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.admin-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.admin-header h1 {
+  margin: 0;
+  font-family: "Franklin Gothic Medium", "Trebuchet MS", sans-serif;
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.admin-header p {
+  max-width: 62ch;
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.admin-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.admin-badges span {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(46, 95, 150, 0.14);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ink);
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(36, 50, 74, 0.06);
+}
+
+.admin-callout,
+.admin-empty {
+  margin-top: 24px;
+  padding: 20px 22px;
+  border-radius: 24px;
+  border: 1px solid rgba(46, 95, 150, 0.12);
+  background:
+    linear-gradient(135deg, rgba(238, 245, 251, 0.86), rgba(255, 250, 242, 0.92)),
+    var(--paper-strong);
+}
+
+.admin-callout p,
+.admin-empty p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.admin-callout code {
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.admin-callout-error {
+  border-color: rgba(189, 73, 48, 0.18);
+  background: rgba(255, 247, 244, 0.92);
+}
+
+.admin-login-form {
+  display: grid;
+  gap: 16px;
+  max-width: 460px;
+  margin-top: 24px;
+}
+
+.admin-login-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.admin-login-form span {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.admin-login-form input {
+  width: 100%;
+  border: 1px solid rgba(36, 50, 74, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--ink);
+  padding: 14px 16px;
+  font: inherit;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.admin-login-form input:focus {
+  border-color: rgba(46, 95, 150, 0.42);
+  box-shadow: 0 0 0 4px rgba(46, 95, 150, 0.12);
+  outline: none;
+}
+
+.admin-helper-text {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.admin-empty h2 {
+  margin: 0 0 10px;
+  font-size: 1.6rem;
+}
+
+.admin-inquiry-grid {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.admin-inquiry-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 249, 255, 0.9)),
+    var(--paper-strong);
+}
+
+.admin-inquiry-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.admin-inquiry-date,
+.admin-inquiry-contact {
+  margin: 0;
+  color: var(--muted);
+}
+
+.admin-inquiry-date {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.admin-inquiry-head h2 {
+  margin: 8px 0 6px;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.08;
+}
+
+.admin-inquiry-contact {
+  font-weight: 700;
+}
+
+.admin-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(46, 95, 150, 0.1);
+  color: var(--blue);
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.admin-contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-top: 18px;
+}
+
+.admin-contact-links a {
+  color: var(--blue);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.admin-meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0 0;
+}
+
+.admin-meta-block {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(36, 50, 74, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.admin-meta-block dt {
+  color: var(--blue);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-meta-block dd {
+  margin: 8px 0 0;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.admin-message {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(243, 154, 36, 0.14);
+  background: rgba(255, 250, 242, 0.88);
+}
+
+.admin-message p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.admin-message-label {
+  margin-bottom: 8px !important;
+  color: var(--ink) !important;
+  font-weight: 800;
+}
+
 @media (max-width: 1040px) {
   .hero-grid,
   .contact-grid,
@@ -753,6 +1006,21 @@ img {
 
   .resource-card {
     max-width: 620px;
+  }
+
+  .admin-header,
+  .admin-inquiry-head,
+  .admin-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-header,
+  .admin-inquiry-head {
+    display: grid;
+  }
+
+  .admin-meta {
+    display: grid;
   }
 
   .site-footer {
@@ -793,12 +1061,17 @@ img {
   .reasons-panel,
   .cta-panel,
   .contact-card,
-  .inquiry-panel {
+  .inquiry-panel,
+  .admin-panel,
+  .admin-inquiry-card,
+  .admin-callout,
+  .admin-empty {
     border-radius: 24px;
   }
 
   .cta-panel,
-  .inquiry-panel {
+  .inquiry-panel,
+  .admin-panel {
     padding: 24px;
   }
 
@@ -817,6 +1090,15 @@ img {
 
   .button {
     width: 100%;
+  }
+
+  .admin-shell {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .admin-meta {
+    grid-template-columns: 1fr;
   }
 
   .hero-actions,
