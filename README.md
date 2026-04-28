@@ -21,9 +21,13 @@ The quote request form uses a Next.js API route. You can keep email alerts, save
 submissions to the admin inbox, or use both.
 
 ```bash
-RESEND_API_KEY=your_resend_api_key
 CONTACT_NOTIFICATION_EMAIL=contact@reimaginedideas.com
-CONTACT_FROM_EMAIL=Reimagined Ideas <onboarding@resend.dev>
+CONTACT_FROM_EMAIL=Reimagined Ideas <quotes@yourdomain.com>
+SMTP_HOST=smtppro.zoho.com
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USERNAME=your-zoho-mailbox@yourdomain.com
+SMTP_PASSWORD=your-zoho-password-or-app-password
 ADMIN_PASSWORD=choose-a-strong-password
 ADMIN_SESSION_SECRET=generate-a-long-random-secret
 BLOB_READ_WRITE_TOKEN=your_vercel_blob_token
@@ -36,8 +40,20 @@ On Vercel, add the same values in the project Environment Variables settings.
 - `BLOB_READ_WRITE_TOKEN` stores quote requests for the password-protected admin
   inbox at `/admin`.
 - `ADMIN_PASSWORD` and `ADMIN_SESSION_SECRET` protect that admin page.
-- `RESEND_API_KEY` keeps email notifications enabled so new quote requests are also
-  sent to `CONTACT_NOTIFICATION_EMAIL`.
+- `SMTP_*`, `CONTACT_FROM_EMAIL`, and `CONTACT_NOTIFICATION_EMAIL` enable Zoho Mail
+  SMTP notifications so new quote requests are also sent to your inbox.
+
+### Zoho Mail notes
+
+- If you use a domain-based Zoho Mail organization inbox, Zoho's docs currently list
+  `smtppro.zoho.com` with port `465` for SSL or port `587` for TLS, but Zoho also
+  says the exact server details can vary by account and datacenter. Check the
+  "Server Configurations Details" section inside your Zoho Mail account and override
+  `SMTP_HOST`, `SMTP_PORT`, or `SMTP_SECURE` if Zoho shows different values.
+- If your Zoho account has two-factor authentication enabled, use an app password for
+  `SMTP_PASSWORD`.
+- `CONTACT_FROM_EMAIL` should use the same Zoho mailbox or an alias of the mailbox
+  used in `SMTP_USERNAME`.
 
 If Blob storage is configured, the website can still accept and store quote requests
 even if email notifications are temporarily disabled.
@@ -50,4 +66,7 @@ even if email notifications are temporarily disabled.
 - `app/api/workshop-inquiry/route.ts` - inquiry validation, storage, and email delivery
 - `app/admin/page.tsx` - password-protected admin inbox
 - `lib/inquiry-storage.ts` - Blob-backed quote storage with local dev fallback
-- `public/techflyer.png` - flyer reference image used on the site
+- `lib/notification-email.ts` - Zoho Mail SMTP notification delivery
+- `public/techflyer.png` - general flyer download used on the site
+- `public/powering-future-lab-flyer.png` - 4-day Future Systems Builders Camp flyer download
+- `public/reimagined-ideas-logo.png` - site logo used in the header

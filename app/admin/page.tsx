@@ -61,7 +61,9 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
   const adminConfigured = isAdminConfigured();
   const authenticated = adminConfigured ? await isAdminAuthenticated() : false;
   const inquiries = authenticated ? await listInquiries(50) : [];
-  const emailNotificationsEnabled = Boolean(process.env.RESEND_API_KEY);
+  const emailNotificationsEnabled = Boolean(
+    process.env.SMTP_USERNAME && process.env.SMTP_PASSWORD,
+  );
 
   return (
     <main className="admin-shell">

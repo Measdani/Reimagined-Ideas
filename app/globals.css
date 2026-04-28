@@ -95,8 +95,22 @@ img {
 
 .brand {
   display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.brand-logo {
+  width: clamp(82px, 11vw, 132px);
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.brand-copy {
+  display: inline-flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
 }
 
 .brand-kicker {
@@ -326,6 +340,11 @@ img {
   letter-spacing: -0.03em;
 }
 
+.resource-files {
+  display: grid;
+  gap: 12px;
+}
+
 .resource-file {
   display: grid;
   gap: 6px;
@@ -335,6 +354,15 @@ img {
     linear-gradient(135deg, rgba(255, 217, 120, 0.24), rgba(238, 245, 251, 0.88)),
     var(--paper);
   border: 1px solid rgba(36, 50, 74, 0.08);
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.resource-file:hover,
+.resource-file:focus-visible {
+  border-color: rgba(46, 95, 150, 0.24);
+  box-shadow: 0 14px 30px rgba(36, 50, 74, 0.08);
+  transform: translateY(-1px);
+  outline: none;
 }
 
 .resource-file strong {
@@ -480,6 +508,10 @@ img {
   margin-top: 28px;
 }
 
+.outcomes-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .outcomes-note {
   max-width: 900px;
   margin: 20px 0 0;
@@ -536,7 +568,7 @@ img {
 
 .program-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
   margin-top: 28px;
 }
@@ -1000,6 +1032,7 @@ img {
   .partner-strip,
   .steps-grid,
   .outcomes-grid,
+  .outcomes-grid-three,
   .program-grid {
     grid-template-columns: 1fr;
   }
@@ -1038,6 +1071,10 @@ img {
   .topbar {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .brand-logo {
+    width: 96px;
   }
 
   .topnav {

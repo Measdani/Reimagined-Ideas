@@ -60,6 +60,16 @@ const workshopExperiences = [
       "Collaborate and test ideas in a fun, low-pressure environment",
     ],
   },
+  {
+    label: "Option 3",
+    title: "Powering the Future Lab",
+    items: [
+      "Build smart city, water system, and human body circuit projects",
+      "Work in small teams through a 4-day future systems builder camp",
+      "Explore real careers like systems engineer, inventor, designer, and environmental engineer",
+      "Finish with an innovation challenge and junior systems engineer take-home kit",
+    ],
+  },
 ];
 
 const programOptions = [
@@ -72,6 +82,11 @@ const programOptions = [
     title: "Summer series",
     description:
       "A multi-session format for camps or programs that want to go deeper into invention and prototyping.",
+  },
+  {
+    title: "4-day Future Systems Builders Camp",
+    description:
+      "A kid-focused camp option where students design smart cities, water systems, body circuits, and team inventions.",
   },
   {
     title: "Custom partner format",
@@ -90,6 +105,21 @@ const flyerHighlights = [
   "Quick snapshot of the workshop, grade range, and learning value",
   "Easy to share with camp leadership, school teams, or program directors",
   "Helpful for internal review before booking dates and finalizing a quote",
+];
+
+const flyerDownloads = [
+  {
+    title: "Reimagined Ideas flyer",
+    description: "A general overview for hands-on tech workshops and partner conversations.",
+    href: "/techflyer.png",
+    fileName: "Reimagined-Ideas-Flyer.png",
+  },
+  {
+    title: "Powering the Future Lab flyer",
+    description: "A 4-day kids camp overview for grades 3-8 with daily engineering labs.",
+    href: "/powering-future-lab-flyer.png",
+    fileName: "Powering-the-Future-Lab-Flyer.png",
+  },
 ];
 
 const quoteHighlights = [
@@ -111,8 +141,15 @@ export default function Home() {
       <section className="hero-section">
         <div className="topbar">
           <a className="brand" href="#top">
-            <span className="brand-kicker">Reimagined Ideas</span>
-            <span className="brand-subtitle">Interactive Tech Workshops</span>
+            <img
+              className="brand-logo"
+              src="/reimagined-ideas-logo.png"
+              alt="Reimagined Ideas"
+            />
+            <span className="brand-copy">
+              <span className="brand-kicker">Reimagined Ideas</span>
+              <span className="brand-subtitle">Interactive Tech Workshops</span>
+            </span>
           </a>
           <nav className="topnav" aria-label="Primary">
             <a href="#programs">Programs</a>
@@ -168,10 +205,19 @@ export default function Home() {
               what it would look like in your camp or school setting.
             </p>
 
-            <div className="resource-file">
-              <span className="resource-file-type">PNG download</span>
-              <strong>Reimagined Ideas flyer</strong>
-              <span>Useful for planning meetings, approvals, and internal conversations.</span>
+            <div className="resource-files" aria-label="Flyer download options">
+              {flyerDownloads.map((flyer) => (
+                <a
+                  className="resource-file"
+                  href={flyer.href}
+                  download={flyer.fileName}
+                  key={flyer.title}
+                >
+                  <span className="resource-file-type">PNG download</span>
+                  <strong>{flyer.title}</strong>
+                  <span>{flyer.description}</span>
+                </a>
+              ))}
             </div>
 
             <ul className="resource-list">
@@ -192,10 +238,10 @@ export default function Home() {
             <div className="resource-actions">
               <a
                 className="button button-primary"
-                href="/techflyer.png"
-                download="Reimagined-Ideas-Flyer.png"
+                href="/powering-future-lab-flyer.png"
+                download="Powering-the-Future-Lab-Flyer.png"
               >
-                Download the Flyer
+                Download Future Lab Flyer
               </a>
               <a className="button button-secondary" href="#contact">
                 Check Availability
@@ -250,7 +296,7 @@ export default function Home() {
           project or explore how technology responds to their ideas in real time.
         </p>
 
-        <div className="outcomes-grid">
+        <div className="outcomes-grid outcomes-grid-three">
           {workshopExperiences.map((experience) => (
             <article className="list-card" key={experience.title}>
               <p className="card-label">{experience.label}</p>

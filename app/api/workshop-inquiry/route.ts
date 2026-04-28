@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import {
-  buildHtmlEmail,
   buildInquiry,
-  buildTextEmail,
   createStoredInquiry,
   validateInquiry,
 } from "../../../lib/inquiry";
@@ -10,56 +8,9 @@ import {
   InquiryStorageUnavailableError,
   saveInquiry,
 } from "../../../lib/inquiry-storage";
+import { sendInquiryNotificationEmail } from "../../../lib/notification-email";
 
 const fallbackContactEmail = "contact@reimaginedideas.com";
-
-async function sendInquiryNotificationEmail(inquiry: ReturnType<typeof buildInquiry>) {
-  const apiKey = process.env.RESEND_API_KEY;
-
-  if (!apiKey) {
-    return {
-      delivered: false,
-      configured: false,
-    };
-  }
-
-  const notificationEmail =
-    process.env.CONTACT_NOTIFICATION_EMAIL ?? fallbackContactEmail;
-  const fromEmail =
-    process.env.CONTACT_FROM_EMAIL ?? "Reimagined Ideas <onboarding@resend.dev>";
-
-  const resendResponse = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: fromEmail,
-      to: [notificationEmail],
-      reply_to: inquiry.email,
-      subject: `Workshop inquiry from ${inquiry.contactName}`,
-      text: buildTextEmail(inquiry),
-      html: buildHtmlEmail(inquiry),
-    }),
-  });
-
-  if (!resendResponse.ok) {
-    const resendError = await resendResponse.text();
-
-    console.error("Workshop inquiry email failed", resendError);
-
-    return {
-      delivered: false,
-      configured: true,
-    };
-  }
-
-  return {
-    delivered: true,
-    configured: true,
-  };
-}
 
 export async function POST(request: Request) {
   let payload: Record<string, unknown>;
